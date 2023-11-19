@@ -10,8 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@erc725/erc725.js": "^0.21.2",
+    "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
+    "@lukso/lsp-factory.js": "^3.2.1",
+    "@lukso/lsp-smart-contracts": "^0.12.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "web3": "1.10"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",
@@ -21,6 +26,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.4",
+    "sass": "^1.69.5",
     "vite": "^5.0.0"
   }
 }
