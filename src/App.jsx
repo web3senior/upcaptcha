@@ -33,10 +33,9 @@ function App() {
    * Connect wallet
    */
   const connectWallet = async () => {
-    const loadingToast = toast.loading('Loading...')
-
     if (!checkboxRef.current.checked) return false
-
+    const loadingToast = toast.loading('Loading...')
+    
     try {
       await web3.eth.requestAccounts()
       const accounts = await web3.eth.getAccounts()
@@ -49,6 +48,7 @@ function App() {
         toast.success(`Data printed in the console`, { icon: '🦄' })
         console.log(res)
         setProfile(res)
+        toast(`Welcome ${res.value.LSP3Profile.name}!`)
       })
     } catch (error) {
       toast.dismiss(loadingToast)
