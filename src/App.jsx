@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import Web3 from 'web3'
 import { ERC725 } from '@erc725/erc725.js'
 import { CheckIcon, ChromeIcon, BraveIcon } from './components/icons'
 import upcaptchaLogo from '/upcaptcha.svg'
 import styles from './App.module.scss'
+import toast, { Toaster } from 'react-hot-toast'
 import lsp3ProfileSchema from '@erc725/erc725.js/schemas/LSP3ProfileMetadata.json'
 
 const provider = window.lukso
@@ -11,12 +12,15 @@ const web3 = new Web3(provider)
 
 function App() {
   const [profile, setProfile] = useState(0)
+  const checkboxRef = useRef()
 
   /**
    * Fetch Universal Profile
+   * @param {address} addr
+   * @returns
    */
   const fetchProfile = async (addr) => {
-    const erc725js = new ERC725(lsp3ProfileSchema, addr,provider, {
+    const erc725js = new ERC725(lsp3ProfileSchema, addr, provider, {
       ipfsGateway: 'https://api.universalprofile.cloud/ipfs',
     })
     return await erc725js.fetchData('LSP3Profile')
@@ -26,19 +30,35 @@ function App() {
    * Connect wallet
    */
   const connectWallet = async () => {
-    await web3.eth.requestAccounts()
-    const accounts = await web3.eth.getAccounts()
-    console.log(accounts)
-    fetchProfile(accounts[0]).then(res =>{
-      console.log(res)
-      setProfile(res)
-    })
+    const loadingToast = toast.loading('Loading...')
+
+    if (!checkboxRef.current.checked) return false
+
+    try {
+      await web3.eth.requestAccounts()
+      const accounts = await web3.eth.getAccounts()
+      console.log(accounts)
+
+      // Call fetch func
+      fetchProfile(accounts[0]).then((res) => {
+        toast.dismiss(loadingToast)
+        toast.success(`Got the data`, { icon: '🆙' })
+        toast.success(`Data printed in the console`, { icon: '🦄' })
+        console.log(res)
+        setProfile(res)
+      })
+    } catch (error) {
+      toast.dismiss(loadingToast)
+      toast.error(error.message)
+      checkboxRef.current.checked = !checkboxRef.current.checked
+    }
   }
 
   useEffect(() => {})
 
   return (
     <>
+      <Toaster />
       <div className={styles.container}>
         <CheckIcon />
         <h3>Verify You Are Human</h3>
@@ -47,7 +67,7 @@ function App() {
         </p>
         <div className={styles.captcha}>
           <div className={styles.captcha__item}>
-            <input type="checkbox" name="" id="" onClick={() => connectWallet()} />
+            <input type="checkbox" name="" id="" onClick={() => connectWallet().catch()} ref={checkboxRef} />
           </div>
           <div className={styles.captcha__item}>I’m an UP user</div>
           <div className={styles.captcha__item}>
@@ -56,10 +76,10 @@ function App() {
             </a>
             <b>upCaptcha</b>
             <div className={styles.captcha__itemActions}>
-              <a href="./" target="_blank">
+              <a href="#" onClick={() => toast(`TODO`, { icon: '🔃' })}>
                 Privacy
               </a>
-              <a href="./" target="_blank">
+              <a href="#" onClick={() => toast(`TODO`, { icon: '🔃' })}>
                 Terms
               </a>
             </div>
