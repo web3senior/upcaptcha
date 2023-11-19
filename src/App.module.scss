@@ -5,7 +5,7 @@
   text-align: center;
 
   svg {
-    border: 12px solid #d2dcfd;
+    border: 12px solid var(--color-secondary);
     border-radius: 999px;
   }
 }
@@ -49,6 +49,8 @@
       width: 40px;
       height: 40px;
       cursor: pointer;
+      border-radius: 999px;
+      transition: 0.15ms;
     }
   }
 

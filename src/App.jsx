@@ -6,12 +6,15 @@ import upcaptchaLogo from '/upcaptcha.svg'
 import styles from './App.module.scss'
 import toast, { Toaster } from 'react-hot-toast'
 import lsp3ProfileSchema from '@erc725/erc725.js/schemas/LSP3ProfileMetadata.json'
+import Loading from './components/LoadingSpinner'
 
 const provider = window.lukso
 const web3 = new Web3(provider)
 
 function App() {
-  const [profile, setProfile] = useState(0)
+  const [isLoading, setIsLoading] = useState(true)
+  const [profile, setProfile] = useState()
+  const [isUPinstalled, setIsUPinstalled] = useState(window.lukso || false)
   const checkboxRef = useRef()
 
   /**
@@ -54,11 +57,24 @@ function App() {
     }
   }
 
-  useEffect(() => {})
+  useEffect(() => {
+    setIsLoading(false)
+  })
+
+  if (!isUPinstalled)
+    return (
+      <>
+        <h3>You need to install UP extension</h3>
+        <UPExtension />
+      </>
+    )
 
   return (
     <>
       <Toaster />
+
+      {isLoading && <Loading />}
+
       <div className={styles.container}>
         <CheckIcon />
         <h3>Verify You Are Human</h3>
@@ -69,7 +85,7 @@ function App() {
           <div className={styles.captcha__item}>
             <input type="checkbox" name="" id="" onClick={() => connectWallet().catch()} ref={checkboxRef} />
           </div>
-          <div className={styles.captcha__item}>I’m an UP user</div>
+          <div className={styles.captcha__item}>Continue with UP</div>
           <div className={styles.captcha__item}>
             <a href="./" target="_blank">
               <img src={upcaptchaLogo} className="logo react" alt="React logo" />
@@ -87,16 +103,22 @@ function App() {
         </div>
       </div>
 
-      <div className={styles.UPextension}>
-        Install UP extension
-        <a href="https://chromewebstore.google.com/detail/universal-profiles/abpickdkkbnbcoepogfhkhennhfhehfn" target="_blank">
-          <ChromeIcon />
-        </a>
-        <a href="https://chromewebstore.google.com/detail/universal-profiles/abpickdkkbnbcoepogfhkhennhfhehfn" target="_blank">
-          <BraveIcon />
-        </a>
-      </div>
+      <UPExtension />
     </>
+  )
+}
+
+const UPExtension = () => {
+  return (
+    <div className={styles.UPextension}>
+      Don't have Universal Profile on your browser?
+      <a href="https://chromewebstore.google.com/detail/universal-profiles/abpickdkkbnbcoepogfhkhennhfhehfn" target="_blank">
+        <ChromeIcon />
+      </a>
+      <a href="https://chromewebstore.google.com/detail/universal-profiles/abpickdkkbnbcoepogfhkhennhfhehfn" target="_blank">
+        <BraveIcon />
+      </a>
+    </div>
   )
 }
 
