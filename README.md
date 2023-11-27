@@ -2,6 +2,9 @@
 
 A free tool to replace CAPTCHAs in web3 space
 
+## Demo
+https://web3senior.github.io/upcaptcha/
+
 ## Prbolem
 
 CAPTCHAs have some drawbacks and limitations, such as:
