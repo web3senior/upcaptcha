@@ -5,6 +5,15 @@ A free tool to replace CAPTCHAs in web3 space
 ## Demo
 https://web3senior.github.io/upcaptcha/
 
+## Install
+```bash
+1️⃣ git clone https://github.com/web3senior/upcaptcha
+
+2️⃣ npm i
+
+3️⃣ npm run dev
+```
+
 ## Prbolem
 
 CAPTCHAs have some drawbacks and limitations, such as:
