@@ -1,4 +1,4 @@
-# UPcaptcha
+# UPcaptcha 🆙
 
 A free tool to replace CAPTCHAs in web3 space
 
