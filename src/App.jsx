@@ -79,7 +79,7 @@ function App() {
         <CheckIcon />
         <h3>Verify You Are Human</h3>
         <p className={styles.description}>
-          upCaptcha by using Universal Profile Public Data (UPPD) confirms visitors are real without the data privacy concerns or boring user experience of web2-CAPTCHAs.
+          upCaptcha by using Universal Profile Public Data (UPPD) confirms visitors are real without the data privacy concerns or spending time on solving puzzles.
         </p>
         <div className={styles.captcha}>
           <div className={styles.captcha__item}>
