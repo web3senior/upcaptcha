@@ -3,10 +3,10 @@ import Web3 from 'web3'
 import { ERC725 } from '@erc725/erc725.js'
 import { CheckIcon, ChromeIcon, BraveIcon } from './components/icons'
 import upcaptchaLogo from '/upcaptcha.svg'
-import styles from './App.module.scss'
 import toast, { Toaster } from 'react-hot-toast'
 import lsp3ProfileSchema from '@erc725/erc725.js/schemas/LSP3ProfileMetadata.json'
 import Loading from './components/LoadingSpinner'
+import styles from './App.module.scss'
 
 const provider = window.lukso
 const web3 = new Web3(provider)
@@ -35,7 +35,7 @@ function App() {
   const connectWallet = async () => {
     if (!checkboxRef.current.checked) return false
     const loadingToast = toast.loading('Loading...')
-    
+
     try {
       await web3.eth.requestAccounts()
       const accounts = await web3.eth.getAccounts()
