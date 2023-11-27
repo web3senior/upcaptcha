@@ -22,6 +22,18 @@ Therefore, CAPTCHAs can be seen as a waste of human time and a source of annoyan
 
 **Source: Copilot**
 
+## Use Cases
+### Scraping
+Content pilfering for ad revenue diversion or competitive use
+### Fraudulent Transactions
+Purchase of goods or gift cards with stolen credit cards
+### False Posts
+Posting of malicious links or misinformation propagation
+### Money Laundering
+Bot generated ad click revenue on fraudulent websites
+
+<i>It covers the all use cases of Google reCAPTCHA too</i>
+
 ## Verify You Are Human
 
 upCaptcha by using Universal Profile Public Data (UPPD) confirms visitors are real without the data privacy concerns or boring user experience of web2-CAPTCHAs.
