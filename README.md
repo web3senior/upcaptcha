@@ -3,15 +3,21 @@
 A free tool to replace CAPTCHAs in web3 space
 
 ## Demo
+
 https://web3senior.github.io/upcaptcha/
 
 ## Install
+
 ```bash
-1️⃣ git clone https://github.com/web3senior/upcaptcha
+git clone https://github.com/web3senior/upcaptcha
+```
 
-2️⃣ npm i
+```bash
+npm i
+```
 
-3️⃣ npm run dev
+```bash
+npm run dev
 ```
 
 ## Prbolem
@@ -35,13 +41,21 @@ Therefore, CAPTCHAs can be seen as a waste of human time and a source of annoyan
 **Source: Copilot**
 
 ## Use Cases
+
 ### Scraping
+
 Content pilfering for ad revenue diversion or competitive use
+
 ### Fraudulent Transactions
+
 Purchase of goods or gift cards with stolen credit cards
+
 ### False Posts
+
 Posting of malicious links or misinformation propagation
+
 ### Money Laundering
+
 Bot generated ad click revenue on fraudulent websites
 
 <i>It covers the all use cases of Google reCAPTCHA too</i>
@@ -60,6 +74,18 @@ UPcaptcha always preserves the privacy of web visitors on your Dapp. it can't co
 
 ■ Fast and free
 Deploy in minutes with just a quick code snippet - and totally free of charge.
+
+## TODO
+
+🆙Total requests
+
+🆙Suspicious requests
+
+🆙Show Traffic
+
+🆙Request Type (web2 -  Dapp)
+
+🆙Verify per system (Smart contract), once a user connects the wallet, will sign a signature, next The platform doesn't need to verify that a user of a website or an online service is a human and not a bot(by a token in Localstorage...).
 
 ## How UPcaptcha works?
 
