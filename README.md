@@ -92,3 +92,5 @@ Deploy in minutes with just a quick code snippet - and totally free of charge.
 ![upcaptcha flowchart](https://raw.githubusercontent.com/web3senior/upcaptcha/main/src/assets/upcaptcha-flowchart.png?token=GHSAT0AAAAAACKLESRYHKJCBHO6MC5I7YQUZLEAQ7A)
 
 ---
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Anyone can fork, modify, and redistribute.
